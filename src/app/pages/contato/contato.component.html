@@ -9,7 +9,7 @@
     </figure>
   </section>
 
-  <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="formulario">
+  <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="formulario" novalidate>
     <fieldset>
       <div class="campo-form">
         <label for="nome">Nome</label>
@@ -21,12 +21,9 @@
           placeholder="Digite seu nome completo"
           formControlName="nome"
           required>
-        @if (contatoForm.get('nome')?.errors?.['required']) {
-          <span
-            id="nome-erro"
-            class="erro-mensagem">Nome obrigatório
-          </span>
-        }
+        <span *ngIf="contatoForm.get('nome')?.touched && contatoForm.get('nome')?.invalid" class="erro-mensagem">
+          Nome obrigatório
+        </span>
       </div>
 
       <div class="campo-form">
@@ -40,18 +37,12 @@
           placeholder="Digite seu email"
           formControlName="email"
           required>
-          @if (contatoForm.get('email')?.errors?.['email']) {
-            <span
-              id="email-erro-email"
-              class="erro-mensagem">Formato de e-mail inválido
-            </span>
-          }
-          @if (contatoForm.get('email')?.errors?.['required']) {
-            <span
-              id="email-erro-required"
-              class="erro-mensagem">E-mail obrigatório
-            </span>
-          }
+        <span *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['email']" class="erro-mensagem">
+          Formato de e-mail inválido
+        </span>
+        <span *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.errors?.['required']" class="erro-mensagem">
+          E-mail obrigatório
+        </span>
       </div>
 
       <div class="campo-form">
@@ -69,23 +60,25 @@
         <label for="motivoContato">Qual o motivo do contato?</label>
         <select
           id="motivoContato"
-          formControlName="motivoContato">
-          <option value="" disabled selected>Selecione a melhor opção</option>
+          formControlName="motivoContato"
+          required>
+          <option value="" disabled>Selecione a melhor opção</option>
           <option value="suporte">Suporte</option>
           <option value="sugestoes">Sugestões</option>
           <option value="feedback">Feedback</option>
         </select>
+        <span *ngIf="contatoForm.get('motivoContato')?.touched && contatoForm.get('motivoContato')?.invalid" class="erro-mensagem">
+          Selecione um motivo
+        </span>
       </div>
     </fieldset>
 
     <fieldset>
       <label for="melhorFormaContato">Qual a melhor forma de retorno do seu contato?</label>
-      <div
-        role="radiogroup"
-        class="campo-form">
+      <div role="radiogroup" class="campo-form">
         <ul class="radio-button">
           <li>
-            <label for="email">
+            <label for="email-contato">
               <input
                 type="radio"
                 id="email-contato"
@@ -94,7 +87,7 @@
             </label>
           </li>
           <li>
-            <label for="telefone">
+            <label for="telefone-contato">
               <input
                 type="radio"
                 id="telefone-contato"
@@ -103,10 +96,10 @@
             </label>
           </li>
           <li>
-            <label for="whatsapp">
+            <label for="whatsapp-contato">
               <input
                 type="radio"
-                id="whatsapp"
+                id="whatsapp-contato"
                 formControlName="melhorFormaContato"
                 value="whatsapp">Whatsapp
             </label>
@@ -125,27 +118,40 @@
           placeholder="Digite sua mensagem"
           formControlName="mensagem"
           required></textarea>
-        @if (contatoForm.get('mensagem')?.errors?.['required']) {
-          <span
-            id="mensagem-erro"
-            class="erro-mensagem">Mensagem obrigatória
-          </span>
-        }
+        <span *ngIf="contatoForm.get('mensagem')?.touched && contatoForm.get('mensagem')?.invalid" class="erro-mensagem">
+          Mensagem obrigatória
+        </span>
       </div>
     </fieldset>
 
+    <!-- Termos LGPD -->
+    <fieldset>
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="aceitaTermos" required />
+        Eu concordo com os <a href="/politica-de-privacidade" target="_blank">termos de uso e política de privacidade</a>.
+      </label>
+      <span *ngIf="contatoForm.get('aceitaTermos')?.touched && contatoForm.get('aceitaTermos')?.invalid" class="erro-mensagem">
+        Você deve aceitar os termos para continuar
+      </span>
+    </fieldset>
+
+    <fieldset>
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="aceitaUsoDados" required />
+        Eu concordo com o uso dos meus dados conforme a LGPD.
+      </label>
+      <span *ngIf="contatoForm.get('aceitaUsoDados')?.touched && contatoForm.get('aceitaUsoDados')?.invalid" class="erro-mensagem">
+        Você deve aceitar a política de uso dos dados para continuar
+      </span>
+    </fieldset>
+
     <div class="contato-botoes">
-      <button
-        type="button"
-        class="botao-cancelar"
-        (click)="cancelar()">Cancelar
-      </button>
+      <button type="button" class="botao-cancelar" (click)="cancelar()">Cancelar</button>
       <button
         type="submit"
-        [attr.aria-disabled]="contatoForm.invalid"
+        [disabled]="contatoForm.invalid"
         class="botao-enviar">Enviar
       </button>
     </div>
   </form>
 </div>
-
