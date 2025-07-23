@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,6 @@ body {
   color: #333;
 }
 
-/* Container principal */
 .container {
   display: flex;
   justify-content: center;
@@ -26,7 +25,7 @@ li {
   list-style-type: none;
 }
 
-/* Formulário */
+
 form.busca {
   display: flex;
   flex-direction: column;
@@ -34,7 +33,7 @@ form.busca {
   width: 100%;
 }
 
-/* Label */
+
 label {
   color: #bd871a;
   font-weight: 600;
@@ -46,7 +45,7 @@ label {
   animation: slideFade 1.2s ease-in-out;
 }
 
-/* Wrapper do input */
+
 .input-wrapper {
   position: relative;
   display: inline-block;
@@ -54,7 +53,7 @@ label {
   max-width: 588px;
 }
 
-/* Campo de busca */
+
 section input {
   width: 100%;
   height: 56px;
@@ -72,7 +71,7 @@ section input:focus {
   padding-left: 24px;
 }
 
-/* Ícone da lupa */
+
 .lupa {
   position: absolute;
   top: 50%;
@@ -88,7 +87,6 @@ section input:focus {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Mensagem abaixo do campo */
 section p {
   font-size: 16px;
   color: #717070;
@@ -145,7 +143,6 @@ section p {
   animation: fadeIn 1.2s ease-in-out;
 }
 
-/* ===== CARDS INFO ===== */
 .cards-info {
   width: 100%;
   max-width: 1200px;
@@ -201,7 +198,6 @@ section p {
   color: #555;
 }
 
-/* ===== DEPOIMENTOS ===== */
 .depoimentos {
   width: 100%;
   max-width: 900px;
@@ -243,7 +239,7 @@ blockquote footer {
   color: #fcbf49;
 }
 
-/* ===== TECNOLOGIAS USADAS ===== */
+
 .sobre-tecnologias {
   width: 100%;
   max-width: 900px;
@@ -285,7 +281,7 @@ blockquote footer {
 }
 
 
-/* Media Queries */
+
 @media (max-width: 768px) {
   label {
     font-size: 20px;
@@ -321,7 +317,7 @@ blockquote footer {
   }
 }
 
-/* Animações */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }

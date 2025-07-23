@@ -1,4 +1,3 @@
-/* === BASE E TIPOGRAFIA === */
 body {
   font-family: 'Poppins', sans-serif;
   color: #333;
@@ -8,7 +7,7 @@ body {
   padding: 0;
 }
 
-/* === CONTAINERS GERAIS === */
+
 section {
   max-width: 900px;
   margin: 60px auto;
@@ -23,8 +22,17 @@ section:hover {
   box-shadow: 0 12px 40px rgb(0 0 0 / 0.08);
 }
 
-/* === TÍTULOS === */
-h2, h3 {
+section p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.membro p {
+  text-align: left;
+}
+
+h2,
+h3 {
   color: #1a1a2e;
   font-weight: 700;
   margin-bottom: 20px;
@@ -41,7 +49,7 @@ h3 {
   padding-left: 12px;
 }
 
-/* === PARÁGRAFOS === */
+
 p {
   font-size: 1.1rem;
   color: #555;
@@ -50,7 +58,7 @@ p {
   text-justify: inter-word;
 }
 
-/* === FLEXBOX PARA SEÇÕES COM IMAGENS E TEXTO === */
+
 .sobre-cabecalho,
 .sobre-mais-info {
   display: flex;
@@ -60,8 +68,8 @@ p {
   justify-content: center;
 }
 
-.sobre-cabecalho > div,
-.sobre-mais-info > .texto {
+.sobre-cabecalho>div,
+.sobre-mais-info>.texto {
   flex: 1 1 350px;
 }
 
@@ -82,7 +90,7 @@ p {
   transform: translateY(-10px) scale(1.05);
 }
 
-/* === FIGCAPTION === */
+
 figcaption {
   font-size: 0.9rem;
   color: #888;
@@ -91,7 +99,7 @@ figcaption {
   text-align: center;
 }
 
-/* === DOWNLOAD SECTION === */
+
 .sobre-download {
   text-align: center;
 }
@@ -100,7 +108,7 @@ figcaption {
   display: inline-block;
 }
 
-/* === TECNOLOGIAS === */
+
 .sobre-tecnologias {
   text-align: center;
   margin: 60px auto;
@@ -130,7 +138,7 @@ figcaption {
   transform: scale(1.15);
 }
 
-/* === COMO FUNCIONA === */
+
 .sobre-como-funciona {
   text-align: center;
   padding-top: 0;
@@ -141,7 +149,7 @@ figcaption {
   margin: 0 auto 24px;
 }
 
-/* === DIFERENCIAIS === */
+
 .sobre-diferenciais {
   text-align: left;
   max-width: 700px;
@@ -164,14 +172,14 @@ figcaption {
 }
 
 .sobre-diferenciais li::before {
-  content: '☕'; /* ícone de café como marcador */
+  content: '☕';
   position: absolute;
   left: 0;
   top: 0;
   color: #fcbf49;
 }
 
-/* === EQUIPE === */
+
 .sobre-equipe {
   text-align: center;
 }
@@ -182,6 +190,7 @@ figcaption {
   gap: 30px;
   flex-wrap: wrap;
 }
+
 
 .membro {
   background: #fefefe;
@@ -216,7 +225,7 @@ figcaption {
   color: #666;
 }
 
-/* === FAQ === */
+
 .sobre-faq {
   max-width: 700px;
   margin: 60px auto;
@@ -252,13 +261,19 @@ figcaption {
   outline: none;
 }
 
-/* === ANIMAÇÃO FLUTUAR === */
 @keyframes flutuar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
-/* === RESPONSIVIDADE === */
+
 @media (max-width: 768px) {
   section {
     margin: 30px 15px;
@@ -273,7 +288,8 @@ figcaption {
     font-size: 1.5rem;
   }
 
-  p, li {
+  p,
+  li {
     font-size: 1rem;
   }
 
@@ -283,8 +299,8 @@ figcaption {
     text-align: center;
   }
 
-  .sobre-cabecalho > div,
-  .sobre-mais-info > .texto {
+  .sobre-cabecalho>div,
+  .sobre-mais-info>.texto {
     max-width: 100%;
   }
 
