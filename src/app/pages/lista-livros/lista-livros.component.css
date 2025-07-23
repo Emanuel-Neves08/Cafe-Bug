@@ -70,6 +70,10 @@ section input:focus {
   box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
   padding-left: 24px;
 }
+section:not(.container):not(.resultados):not(.mensagem-erro) {
+  margin-top: 1.5rem;
+  padding-top: 2rem;
+}
 
 
 .lupa {
