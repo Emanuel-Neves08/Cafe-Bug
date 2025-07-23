@@ -1,133 +1,312 @@
-/* === SEÇÃO SOBRE CABEÇALHO === */
-.sobre-cabecalho {
+/* === BASE E TIPOGRAFIA === */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #fafafa;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* === CONTAINERS GERAIS === */
+section {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgb(0 0 0 / 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+section:hover {
+  box-shadow: 0 12px 40px rgb(0 0 0 / 0.08);
+}
+
+/* === TÍTULOS === */
+h2, h3 {
+  color: #1a1a2e;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.03em;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  border-left: 5px solid #fcbf49;
+  padding-left: 12px;
+}
+
+/* === PARÁGRAFOS === */
+p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* === FLEXBOX PARA SEÇÕES COM IMAGENS E TEXTO === */
+.sobre-cabecalho,
+.sobre-mais-info {
   display: flex;
-  flex-direction: row;
+  gap: 40px;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  max-width: 1200px;
+}
+
+.sobre-cabecalho > div,
+.sobre-mais-info > .texto {
+  flex: 1 1 350px;
+}
+
+.pilha_books img,
+.sobre-mais-info figure img,
+.sobre-como-funciona figure img,
+.sobre-download figure img {
+  width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgb(0 0 0 / 0.1);
+  transition: transform 0.3s ease;
+}
+
+.pilha_books img:hover,
+.sobre-mais-info figure img:hover,
+.sobre-como-funciona figure img:hover,
+.sobre-download figure img:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* === FIGCAPTION === */
+figcaption {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 8px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* === DOWNLOAD SECTION === */
+.sobre-download {
+  text-align: center;
+}
+
+.sobre-download figure {
+  display: inline-block;
+}
+
+/* === TECNOLOGIAS === */
+.sobre-tecnologias {
+  text-align: center;
   margin: 60px auto;
-  background: linear-gradient(135deg, #ffffff, #f4f4f8);
-  padding: 40px;
-  gap: 40px;
+}
+
+.icones-tecnologias {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.icones-tecnologias img {
+  width: 70px;
+  height: 70px;
+  filter: grayscale(30%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 8px;
+  background-color: #fefefe;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.04);
+}
+
+.icones-tecnologias img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.15);
+}
+
+/* === COMO FUNCIONA === */
+.sobre-como-funciona {
+  text-align: center;
+  padding-top: 0;
+}
+
+.sobre-como-funciona p {
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+/* === DIFERENCIAIS === */
+.sobre-diferenciais {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sobre-diferenciais ul {
+  list-style: inside disc;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.sobre-diferenciais li {
+  margin-bottom: 12px;
+  padding-left: 6px;
+  position: relative;
+}
+
+.sobre-diferenciais li::before {
+  content: '☕'; /* ícone de café como marcador */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #fcbf49;
+}
+
+/* === EQUIPE === */
+.sobre-equipe {
+  text-align: center;
+}
+
+.time-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.membro {
+  background: #fefefe;
+  padding: 20px 16px;
   border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  width: 200px;
+  box-shadow: 0 12px 24px rgb(0 0 0 / 0.08);
+  transition: box-shadow 0.3s ease;
 }
 
-.sobre-cabecalho h2 {
-  color: #050C42;
-  font-size: 28px;
+.membro:hover {
+  box-shadow: 0 20px 36px rgb(0 0 0 / 0.15);
+}
+
+.membro img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 3px solid #fcbf49;
+}
+
+.membro h4 {
   font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+}
+
+.membro p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* === FAQ === */
+.sobre-faq {
+  max-width: 700px;
+  margin: 60px auto;
+  text-align: left;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: 16px;
 }
 
-.sobre-cabecalho p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.8;
-  color: #4f4f4f;
-  max-width: 600px;
+.sobre-faq h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-/* Imagem da pilha */
-.pilha_books img {
-  width: 240px;
-  max-width: 100%;
-  animation: flutuar 4s ease-in-out infinite;
+.sobre-faq details {
+  background: #fff;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgb(0 0 0 / 0.05);
+  cursor: pointer;
+  transition: box-shadow 0.25s ease;
+  font-size: 1rem;
 }
 
+.sobre-faq details[open] {
+  box-shadow: 0 16px 36px rgb(0 0 0 / 0.12);
+}
+
+.sobre-faq summary {
+  font-weight: 600;
+  outline: none;
+}
+
+/* === ANIMAÇÃO FLUTUAR === */
 @keyframes flutuar {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
 
-/* === DOWNLOAD SECTION === */
-.sobre-download {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  margin: 60px auto;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  text-align: center;
-}
-
-.sobre-download figure img {
-  max-width: 300px;
-  width: 100%;
-  border-radius: 8px;
-}
-
-.sobre-download figcaption {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  color: #7A7A7A;
-  margin-top: 12px;
-}
-
-/* === TECNOLOGIAS === */
-.sobre-tecnologias {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 60px 0;
-  gap: 24px;
-  text-align: center;
-}
-
-.sobre-tecnologias h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  color: #050C42;
-}
-
-.icones-tecnologias {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-}
-
-.icones-tecnologias img {
-  width: 64px;
-  height: 64px;
-  transition: transform 0.3s ease;
-}
-
-.icones-tecnologias img:hover {
-  transform: scale(1.1);
-}
-
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
-  .sobre-cabecalho {
+  section {
+    margin: 30px 15px;
+    padding: 30px 20px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p, li {
+    font-size: 1rem;
+  }
+
+  .sobre-cabecalho,
+  .sobre-mais-info {
     flex-direction: column;
     text-align: center;
-    padding: 32px 24px;
   }
 
-  .sobre-cabecalho h2 {
-    font-size: 22px;
+  .sobre-cabecalho > div,
+  .sobre-mais-info > .texto {
+    max-width: 100%;
   }
 
-  .sobre-cabecalho p {
-    font-size: 15px;
-  }
-
+  .pilha_books img,
+  .sobre-mais-info figure img,
+  .sobre-como-funciona figure img,
   .sobre-download figure img {
-    max-width: 240px;
+    width: 200px;
+    margin: 0 auto;
   }
 
-  .sobre-tecnologias h3 {
-    font-size: 20px;
+  .time-container {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .icones-tecnologias img {
-    width: 48px;
-    height: 48px;
+  .sobre-diferenciais ul {
+    max-width: 100%;
+  }
+
+  .sobre-faq {
+    max-width: 100%;
+    padding: 0 10px;
   }
 }

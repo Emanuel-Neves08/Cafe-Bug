@@ -77,27 +77,20 @@ nav a:hover {
   background-color: white;
   border-radius: 2px;
 }
-
 @media (max-width: 768px) {
   nav {
-    position: absolute;
-    top: 96px;
-    left: 0;
+    /* O menu continua visível e se adapta à tela */
+    position: static;
     width: 100%;
-    background-color: #be6a15;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem 0;
-    display: none;
-  }
-
-  nav.active {
     display: flex;
-    animation: fadeIn 0.4s ease-in;
+    background-color: transparent;
   }
 
   .hamburger {
-    display: flex;
+    display: none; /* Garante que não apareça */
   }
 }
 

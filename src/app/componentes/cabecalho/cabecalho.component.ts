@@ -5,7 +5,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-cabecalho',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet, RouterLinkActive],
+  imports: [CommonModule, RouterLink,  RouterLinkActive],
   templateUrl: './cabecalho.component.html',
   styleUrl: './cabecalho.component.css'
 })
