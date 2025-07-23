@@ -1,15 +1,9 @@
-<section class="container"> 
+<section class="container">
   <!-- CAMPO DE BUSCA -->
   <form class="busca">
     <label for="campoBusca">Que livro você procura?</label>
     <div class="input-wrapper">
-      <input
-        aria-label="Campo de busca"
-        #campoBuscaElement
-        type="search"
-        id="campoBusca"
-        [formControl]="campoBusca"
-      >
+      <input aria-label="Campo de busca" #campoBuscaElement type="search" id="campoBusca" [formControl]="campoBusca">
       <img class="lupa" src="assets/imagens/icone-busca.png" alt="Lupa roxa">
     </div>
   </form>
@@ -17,78 +11,72 @@
 
   <!-- ERRO -->
   @if (mensagemErro) {
-    <section role="alert" aria-label="Mensagem de erro" class="resultados mensagem-erro">
-      {{ mensagemErro }}
-    </section>
+  <section role="alert" aria-label="Mensagem de erro" class="resultados mensagem-erro">
+    {{ mensagemErro }}
+  </section>
   }
 
   <!-- RESULTADOS -->
   @if (livrosEncontrados$ | async; as listaLivros) {
-    <section aria-label="Resultados da busca" class="resultados">
-      {{ livrosResultado.totalItems }} resultados encontrados
-    </section>
-    <ul aria-label="Lista de livros encontrados" class="container-card">
-      @for (livro of listaLivros; track livro.title) {
-        <li>
-          <app-livro [livro]="livro"></app-livro>
-        </li>
-      }
-    </ul>
+  <section aria-label="Resultados da busca" class="resultados">
+    {{ livrosResultado.totalItems }} resultados encontrados
+  </section>
+  <ul aria-label="Lista de livros encontrados" class="container-card">
+    @for (livro of listaLivros; track livro.title) {
+    <li>
+      <app-livro [livro]="livro"></app-livro>
+    </li>
+    }
+  </ul>
   } @else {
-    <!-- PÁGINA INICIAL -->
-    <section class="imagens">
-      <h1 class="titulo">Busque o livro <br> que quiser na <br> nossa estante!</h1>
-      <img
-        class="ilustracao"
-        src="assets/imagens/biblioteca.png"
-        alt="Pessoa ao lado da estante">
-    </section>
+  <!-- PÁGINA INICIAL -->
+  <section class="imagens">
+    <h1 class="titulo">Busque o livro <br> que quiser na <br> nossa estante!</h1>
+    <img class="ilustracao" src="assets/imagens/biblioteca.png" alt="Pessoa ao lado da estante">
+  </section>
 
-    <!-- DESTAQUES DO CAFÉ & BUG -->
-    <section class="cards-info">
-      <h3>Destaques do Café & Bug</h3>
-      <div class="cards-container">
-        <div class="card">
-          <img src="assets/imagens/icon-curiosidade.png" alt="Curiosidade">
-          <h4>Curiosidades Literárias</h4>
-          <p>Descubra fatos incríveis sobre autores, gêneros e bastidores da literatura mundial.</p>
-        </div>
-        <div class="card">
-          <img src="assets/imagens/icon-comunidade.png" alt="Comunidade">
-          <h4>Comunidade Leitora</h4>
-          <p>Interaja com leitores apaixonados, troque indicações e experiências.</p>
-        </div>
-        <div class="card">
-          <img src="assets/imagens/icon-tendencia.png" alt="Tendências">
-          <h4>Tendências do Momento</h4>
-          <p>Veja os livros mais procurados do dia e tendências entre os leitores brasileiros.</p>
-        </div>
+  <!-- DESTAQUES DO CAFÉ & BUG -->
+  <section class="cards-info">
+    <h3>Destaques do Café & Bug</h3>
+    <div class="cards-container">
+      <div class="card">        
+        <h4>💡 Curiosidades Literárias</h4>
+        <p>Descubra fatos incríveis sobre autores, gêneros e bastidores da literatura mundial.</p>
       </div>
-    </section>
+      <div class="card">
+        <h4>>🤝 Comunidade Leitora</h4>
+        <p>Interaja com leitores apaixonados, troque indicações e experiências.</p>
+      </div>
+      <div class="card">
+        <h4> 🚀 Tendências do Momento</h4>
+        <p>Veja os livros mais procurados do dia e tendências entre os leitores brasileiros.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- DEPOIMENTOS -->
-    <section class="depoimentos">
-      <h3>O que dizem sobre o Café & Bug</h3>
-      <div class="depoimentos-container">
-        <blockquote>
-          “Descobri minha nova saga favorita por aqui. Interface simples e resultados rápidos!”
-          <footer>— Lara M.</footer>
-        </blockquote>
-        <blockquote>
-          “Sou professor e recomendo o site para todos os meus alunos!”
-          <footer>— Prof. Diego S.</footer>
-        </blockquote>
-      </div>
-    </section>
+  <!-- DEPOIMENTOS -->
+  <section class="depoimentos">
+    <h3>O que dizem sobre o Café & Bug</h3>
+    <div class="depoimentos-container">
+      <blockquote>
+        “Descobri minha nova saga favorita por aqui. Interface simples e resultados rápidos!”
+        <footer>— Lara M.</footer>
+      </blockquote>
+      <blockquote>
+        “Sou professor e recomendo o site para todos os meus alunos!”
+        <footer>— Prof. Diego S.</footer>
+      </blockquote>
+    </div>
+  </section>
 
-    <!-- TECNOLOGIAS USADAS -->
-    <section class="sobre-tecnologias">
-      <h3>Construído com ❤️ usando:</h3>
-      <div class="icones-tecnologias">
-        <img src="assets/imagens/angular-icon.png" alt="Angular">
-        <img src="assets/imagens/typescript-icon.png" alt="TypeScript">
-        <img src="assets/imagens/google-books-icon.png" alt="Google Books API">
-      </div>
-    </section>
+  <!-- TECNOLOGIAS USADAS -->
+  <section class="sobre-tecnologias">
+
+    <div class="icones-tecnologias">
+      <p class="frase-rodape">
+        Para quem vive entre páginas, bugs e café — esse projeto é para você.
+      </p>
+    </div>
+  </section>
   }
 </section>
