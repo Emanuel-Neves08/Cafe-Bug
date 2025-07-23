@@ -1,17 +1,17 @@
-.input-wrapper { 
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  max-width: 588px;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.lupa {
-  position: absolute;
-  top: 50%;
-  right: 20px;
-  transform: translateY(-50%);
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
+/* Container principal */
 .container {
   display: flex;
   justify-content: center;
@@ -19,9 +19,14 @@
   align-items: center;
   min-height: 100%;
   padding: 0 16px;
-  box-sizing: border-box;
+  animation: fadeInUp 1.2s ease-in-out;
 }
 
+li {
+  list-style-type: none;
+}
+
+/* Formulário */
 form.busca {
   display: flex;
   flex-direction: column;
@@ -29,49 +34,73 @@ form.busca {
   width: 100%;
 }
 
+/* Label */
 label {
   color: #6C63FF;
-  font-style: normal;
   font-weight: 600;
   font-size: 24px;
-  line-height: 36px;
   margin-top: 76px;
-  margin-bottom: 5px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  font-family: 'Poppins', sans-serif;
+  margin-bottom: 12px;
   text-align: center;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  animation: slideFade 1.2s ease-in-out;
 }
 
-section input {
+/* Wrapper do input */
+.input-wrapper {
+  position: relative;
+  display: inline-block;
   width: 100%;
   max-width: 588px;
-  height: 56px;
-  border: 2px solid #6C63FF;
-  border-radius: 10px;
-  outline: 0;
-  box-sizing: border-box;
-  background: url(../../../assets/imagens/logo-google.png) no-repeat;
-  background-position-y: center;
-  background-position-x: 4.08%;
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  padding-left: 20px;
 }
 
-section p {
-  font-family: 'Poppins';
+/* Campo de busca */
+section input {
+  width: 100%;
+  height: 56px;
+  padding-left: 20px;
+  border: 2px solid #6C63FF;
+  border-radius: 12px;
+  background-color: #fff;
   font-size: 16px;
-  line-height: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+}
+
+section input:focus {
+  box-shadow: 0 0 8px rgba(108, 99, 255, 0.5);
+  padding-left: 24px;
+}
+
+/* Ícone da lupa */
+.lupa {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  transition: transform 0.3s ease;
+}
+
+.input-wrapper:hover .lupa {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Mensagem abaixo do campo */
+section p {
+  font-size: 16px;
   color: #717070;
   text-align: center;
+  margin-top: 12px;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
 .resultados {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  font-family: 'Poppins';
   font-size: 16px;
   color: #8B8B8B;
   text-align: center;
@@ -80,52 +109,18 @@ section p {
 .mensagem-erro {
   color: #6C63FF;
   text-align: center;
-}
-
-input[type='search']:focus {
-  background-image: none;
-  outline: none;
-  text-decoration: none;
-  padding-left: 10px;
-}
-
-input[type="search"]::-webkit-search-decoration,
-::-webkit-search-cancel-button,
-::-webkit-search-results-button,
-::-webkit-search-results-decoration {
-  display: none;
-}
-
-section button {
-  border: none;
-  background: none;
-  position: relative;
-  top: 0.3rem;
-  right: 50px;
-}
-
-.teste {
-  background-color: orange;
-  font-family: "Poppins";
-  font-size: 20px;
-  cursor: pointer;
+  font-weight: 600;
+  animation: shake 0.5s ease-in-out;
 }
 
 .container-card {
-  margin-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 24px;
+  margin-bottom: 2rem;
   padding: 0 16px;
-  box-sizing: border-box;
-}
-
-/* Remove margens fixas */
-@media (max-width: 1024px) {
-  .container-card {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  animation: fadeInUp 1.2s ease-in-out;
 }
 
 .imagens {
@@ -136,20 +131,21 @@ section button {
   padding: 0 16px;
 }
 
+.titulo {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 72px;
+  animation: slideFade 1.2s ease-in-out;
+}
+
 .ilustracao {
   margin-top: 72px;
-  margin-left: 130px;
-  margin-right: 64px;
   max-width: 100%;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
-.titulo {
-  margin-top: 72px;
-  margin-left: 64px;
-  text-align: center;
-}
-
-/* Ajustes para telas pequenas */
+/* Media Queries */
 @media (max-width: 768px) {
   label {
     font-size: 20px;
@@ -157,27 +153,38 @@ section button {
   }
 
   section input {
-    width: 100%;
     background-position-x: 8%;
+  }
+
+  .titulo {
+    font-size: 24px;
+    margin-top: 40px;
   }
 
   .ilustracao {
     margin: 40px auto;
     max-width: 90%;
   }
-
-  .titulo {
-    margin-left: 0;
-    margin-top: 40px;
-  }
-
-  section button {
-    right: 10px;
-  }
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
 }

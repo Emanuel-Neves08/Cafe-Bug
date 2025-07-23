@@ -7,11 +7,14 @@
         #campoBuscaElement
         type="search"
         id="campoBusca"
-        [formControl]="campoBusca"        >
-        <img class="lupa" src="assets/imagens/icone-busca.png" alt="Lupa roxa">
+        [formControl]="campoBusca"
+      >
+      <img class="lupa" src="assets/imagens/icone-busca.png" alt="Lupa roxa">
     </div>
   </form>
-  <p>Busque por assunto, autoria, nome...</p>
+  <p class="busque-livros">Busque por assunto, autoria, nome...</p>
+
+  <!-- Mensagem de erro -->
   @if (mensagemErro) {
     <section
       role="alert"
@@ -20,6 +23,8 @@
         {{ mensagemErro }}
     </section>
   }
+
+  <!-- Resultados encontrados -->
   @if (livrosEncontrados$ | async; as listaLivros) {
     <section
       aria-label="Resultados da busca"
